@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charSet="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <title>Outer control of React component</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <h1>Hello</h1>
+        <p>
+            Some text. Use
+        </p>
+        <p>
+            <code>new ControlledComponent(document.getElementById('root-app'), {x: `some X value`, y: `some Y value`})</code>
+        </p>
+        <p>
+            in dev tools console and take controller back for handle component are created.
+        </p>
+        <p>
+            See API methods
+            <ul>
+                <li>controller().create()</li>
+                <li>controller().edit(id, props)</li>
+                <li>controller().remove(id)</li>
+                <li>controller().shuffle()</li>
+            </ul>
+        </p>
+        <div id="root-app" class="container"></div>
+        <script type="text/javascript" src="../public/bundle.js"></script>
+    </body>
+</html>

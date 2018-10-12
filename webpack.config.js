@@ -1,7 +1,10 @@
-const path = require('path');
+const path = require('path')
+const argv = require('yargs').argv
+
+const mode =  argv.dev ? `development` : `production`
 
 module.exports = {
-  mode: `production`,
+  mode,
   entry: `./src/index.js`,
   output: {
     path: path.resolve(__dirname, `public`),
