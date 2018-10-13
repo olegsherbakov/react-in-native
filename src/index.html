@@ -14,7 +14,7 @@
                 Inspect dev tools console and use
             </p>
             <p>
-                <code>new ControlledComponent(document.getElementById('root-app'), {x: `some X value`, y: `some Y value`})</code>
+                <code>const controller = new ControlledComponent(document.getElementById('root-app'))</code>
             </p>
             <p>
                 will take controller back for handle component are created. See API methods
@@ -24,6 +24,7 @@
                 <li>controller().edit(id, props)</li>
                 <li>controller().remove(id)</li>
                 <li>controller().shuffle()</li>
+                <li>controller().clear()</li>
             </ul>
             <div id="root-app" class="app">
             </div>
