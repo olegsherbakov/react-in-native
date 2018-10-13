@@ -1,6 +1,4 @@
 // wrapper
-const random = () => {
-  return Math.random()
-}
+const random = () => Math.random()
 
 export default random
