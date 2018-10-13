@@ -4,12 +4,12 @@
         <meta charSet="utf-8"/>
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-        <title>Outer control of React component</title>
-        <link rel="stylesheet" href="./styles.css">
+        <title>Outer control of custom React components</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <div class="content">
-            <h1>Outer control of React component</h1>
+            <h1>Outer control of custom React components</h1>
             <p>
                 Inspect dev tools console and use
             </p>
@@ -21,7 +21,7 @@
             </p>
             <ul>
                 <li>controller().create()</li>
-                <li>controller().edit(id, props)</li>
+                <li>controller().edit(1, { title: `<span aria-labelledby="jsx-a11y/accessible-emoji" role="img">👍</span>` })</li>
                 <li>controller().remove(id)</li>
                 <li>controller().shuffle()</li>
                 <li>controller().clear()</li>
@@ -29,6 +29,6 @@
         </div>
         <div id="root-app" class="app">
         </div>
-        <script type="text/javascript" src="../public/bundle.js"></script>
+        <script type="text/javascript" src="./public/bundle.js"></script>
     </body>
 </html>
