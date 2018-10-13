@@ -7,13 +7,30 @@
 html,
 body {
   font-size: 1.13em;
+  min-height: 100vh;
+}
+
+h1 {
+  margin: 0.63em 0;
 }
 
 p {
-  margin: 1.13em 0;
+  margin: 0.63em 0;
 }
 
-.container {
+ul {
+  padding: 0 0 0.63em 0.63em;
+}
+
+li {
+  margin: 0 0 0.63em 0.63em;
+}
+
+.content {
+  padding: 0 1.13em;
+}
+
+.app {
   position: relative;
 }
 

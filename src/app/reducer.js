@@ -45,12 +45,12 @@ const generateArr = () => {
   return arr
 }
 
-const shuffle = a => {
-  for (let i = a.length - 1; i > 0; i--) {
+const shuffle = arr => {
+  for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1))
-    ;[a[i], a[j]] = [a[j], a[i]]
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
   }
-  return a
+  return arr
 }
 
 let counter = 0

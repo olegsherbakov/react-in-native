@@ -8,23 +8,26 @@
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1>Hello</h1>
-        <p>
-            Some text. Use
-        </p>
-        <p>
-            <code>new ControlledComponent(document.getElementById('root-app'), {x: `some X value`, y: `some Y value`})</code>
-        </p>
-        <p>
-            in dev tools console and take controller back for handle component are created. See API methods
-        </p>
-        <ul>
-            <li>controller().create()</li>
-            <li>controller().edit(id, props)</li>
-            <li>controller().remove(id)</li>
-            <li>controller().shuffle()</li>
-        </ul>
-        <div id="root-app" class="container"></div>
+        <div class="content">
+            <h1>Outer control of React component</h1>
+            <p>
+                Inspect dev tools console and use
+            </p>
+            <p>
+                <code>new ControlledComponent(document.getElementById('root-app'), {x: `some X value`, y: `some Y value`})</code>
+            </p>
+            <p>
+                will take controller back for handle component are created. See API methods
+            </p>
+            <ul>
+                <li>controller().create()</li>
+                <li>controller().edit(id, props)</li>
+                <li>controller().remove(id)</li>
+                <li>controller().shuffle()</li>
+            </ul>
+            <div id="root-app" class="app">
+            </div>
+        </div>
         <script type="text/javascript" src="../public/bundle.js"></script>
     </body>
 </html>
