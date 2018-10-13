@@ -7,15 +7,18 @@ import App from 'app'
 
 global.ControlledComponent = function(element, props = {}) {
   const store = createStore(reducer)
-  const onResize = ({ width, height }) => {
+  const resize = ({ width, height }) =>
     store.dispatch({ type: `RESIZE`, width, height })
-  }
 
   global.addEventListener(`resize`, () => {
     const { innerWidth, innerHeight } = global
 
-    onResize({ width: innerWidth, height: innerHeight })
+    resize({ width: innerWidth, height: innerHeight })
   })
+
+  const { innerWidth, innerHeight } = global
+
+  resize({ width: innerWidth, height: innerHeight })
 
   ReactDOM.render(
     <Provider store={store}>
@@ -23,10 +26,6 @@ global.ControlledComponent = function(element, props = {}) {
     </Provider>,
     element
   )
-
-  const { innerWidth, innerHeight } = global
-
-  onResize({ width: innerWidth, height: innerHeight })
 
   return () => ({
     create: () => store.dispatch({ type: `CREATE` }),
