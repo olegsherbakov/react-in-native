@@ -4,7 +4,7 @@ const Element = ({ title, arr, zIndex }) =>
   arr.map(({ index, style }) => (
     <div
       key={index}
-      className="randomEffect"
+      className="element"
       style={{
         ...style,
         zIndex,

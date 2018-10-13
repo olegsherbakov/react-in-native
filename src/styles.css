@@ -10,6 +10,10 @@ body {
   min-height: 100vh;
 }
 
+body {
+  position: relative;
+}
+
 h1 {
   margin: 0.63em 0;
 }
@@ -30,10 +34,6 @@ li {
   padding: 0 1.13em;
 }
 
-.app {
-  position: relative;
-}
-
-.randomEffect {
+.element {
   position: absolute;
 }

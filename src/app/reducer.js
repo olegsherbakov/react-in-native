@@ -1,65 +1,25 @@
 import { combineReducers } from 'redux'
-import random from './random'
+import utils from './utils'
 
-const getTop = () => {
-  return `${random() * 200}px`
-}
-
-const getLeft = () => {
-  return `${random() * 500}px`
-}
-
-const getWidth = () => {
-  return `${random() * 100}px`
-}
-
-const getHeight = () => {
-  return `${random() * 100}px`
-}
-
-const getColor = () => {
-  return `rgb(${random() * 254}, ${random() * 254}, ${random() * 254})`
-}
-
-const getBackground = () => {
-  return `rgb(${random() * 254}, ${random() * 254}, ${random() * 254})`
-}
-
-const generateArr = () => {
-  const arr = []
-
-  for (let i = 0; i < random() * 10; i++) {
-    arr.push({
-      index: i,
-      style: {
-        background: getBackground(),
-        height: getHeight(),
-        color: getColor(),
-        width: getWidth(),
-        left: getLeft(),
-        top: getTop(),
-      },
-    })
-  }
-
-  return arr
-}
-
-const shuffle = arr => {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(random() * (i + 1))
-    ;[arr[i], arr[j]] = [arr[j], arr[i]]
-  }
-  return arr
-}
+const defaultWidth = 700
+const defaultHeight = 400
 
 let counter = 0
+let currentSize = { width: defaultWidth, height: defaultHeight }
 
 const elements = (state = [], action) => {
-  const { id, type, payload = {} } = action
+  const {
+    id,
+    type,
+    width = defaultWidth,
+    height = defaultHeight,
+    payload = {},
+  } = action
 
   if (type === `CREATE`) {
-    return [...state, { id: ++counter, title: ``, arr: generateArr() }]
+    const arr = utils.generateArr(currentSize)
+
+    return [...state, { id: ++counter, title: ``, arr }]
   }
 
   if (type === `EDIT`) {
@@ -67,11 +27,33 @@ const elements = (state = [], action) => {
   }
 
   if (type === `DELETE`) {
-    return state.filter(element => element.id !== id)
+    return state.filter(x => x.id !== id)
   }
 
   if (type === `SHUFFLE`) {
-    return shuffle(state.slice())
+    return utils.shuffleArr(state.slice())
+  }
+
+  if (type === `RESIZE`) {
+    const prevWidth = currentSize.width,
+      prevHeight = currentSize.height
+
+    currentSize = { width, height }
+
+    if (width !== prevWidth && height !== prevHeight) {
+      return state.map(x => {
+        const arr = utils.resizeArr(x.arr, currentSize)
+
+        return {
+          ...x,
+          arr,
+        }
+      })
+    }
+  }
+
+  if (type === `CLEAR`) {
+    return []
   }
 
   return state

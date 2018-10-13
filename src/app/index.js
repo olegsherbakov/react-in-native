@@ -1,12 +1,10 @@
 import React from 'react'
 import Elements from './elements'
 
-const App = ({ x, y }) => (
+const App = () => (
   <React.Fragment>
-    init input X: `{x}` Y: `{y}`
-    <div className="container">
-      <Elements />
-    </div>
+    New ControlledComp Component has been append into DOM tree
+    <Elements />
   </React.Fragment>
 )
 
