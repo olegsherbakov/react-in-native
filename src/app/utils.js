@@ -4,9 +4,9 @@ const getLeft = width => width * random()
 
 const getTop = height => height * random()
 
-const getWidth = () => `${random() * 100}px`
+const getWidth = () => `${random() * 250}px`
 
-const getHeight = () => `${random() * 100}px`
+const getHeight = () => `${random() * 250}px`
 
 const getColor = () =>
   `rgb(${random() * 254}, ${random() * 254}, ${random() * 254})`
@@ -20,7 +20,7 @@ const scalePosition = (x, pattern, value) =>
 const generateArr = ({ width, height }) => {
   const arr = []
 
-  for (let i = 0; i < random() * 10; i++) {
+  for (let i = 0; i < random() * 15; i++) {
     const left = getLeft(width)
     const top = getTop(height)
 
