@@ -4,18 +4,14 @@ const getLeft = width => width * random()
 
 const getTop = height => height * random()
 
-const getWidth = () => `${random() * 250}px`
-
-const getHeight = () => `${random() * 250}px`
-
-const getColor = () =>
-  `rgb(${random() * 254}, ${random() * 254}, ${random() * 254})`
-
-const getBackground = () =>
-  `rgb(${random() * 254}, ${random() * 254}, ${random() * 254})`
-
 const scalePosition = (x, pattern, value) =>
   pattern === value ? x : Math.floor(x * (value / pattern))
+
+const getScale = () => random().toFixed(3)
+
+const colors = [`red`, `green`, `blue`, `yellow`, `gold`, `pink`]
+
+const getColor = () => colors[Math.floor(random() * colors.length)]
 
 const generateArr = ({ width, height }) => {
   const arr = []
@@ -23,6 +19,7 @@ const generateArr = ({ width, height }) => {
   for (let i = 0; i < random() * 15; i++) {
     const left = getLeft(width)
     const top = getTop(height)
+    const scale = getScale()
 
     arr.push({
       index: i,
@@ -33,13 +30,12 @@ const generateArr = ({ width, height }) => {
         top,
       },
       style: {
-        background: getBackground(),
-        height: getHeight(),
-        color: getColor(),
-        width: getWidth(),
+        transform: `translate(-50%, -50%) scale(${scale}, ${scale}) rotate(${random() *
+          71}deg)`,
         left,
         top,
       },
+      star: getColor(),
     })
   }
 

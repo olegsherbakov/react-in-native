@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Element = ({ title, arr, zIndex }) =>
-  arr.map(({ index, style }) => (
+  arr.map(({ index, style, star }) => (
     <div
       key={index}
       className="element"
@@ -10,6 +10,7 @@ const Element = ({ title, arr, zIndex }) =>
         zIndex,
       }}
     >
+      <div className={`star-five ${star}`} />
       {title}
     </div>
   ))

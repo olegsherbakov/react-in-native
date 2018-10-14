@@ -45,3 +45,114 @@ li {
   align-items: center;
   justify-content: center;
 }
+
+.star-five {
+  margin: 50px 0;
+  position: relative;
+  display: block;
+  color: red;
+  width: 0;
+  height: 0;
+  border-right: 100px solid transparent;
+  border-left: 100px solid transparent;
+  transform: rotate(35deg);
+}
+
+.star-five:before {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -45px;
+  left: -65px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.star-five:after {
+  position: absolute;
+  display: block;
+  color: red;
+  top: 3px;
+  left: -105px;
+  width: 0;
+  height: 0;
+  border-right: 100px solid transparent;
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+
+.star-five.red {
+  border-bottom: 70px solid red;
+}
+
+.star-five.red:before {
+  border-bottom: 80px solid red;
+}
+
+.star-five.red:after {
+  border-bottom: 70px solid red;
+}
+
+.star-five.green {
+  border-bottom: 70px solid green;
+}
+
+.star-five.green:before {
+  border-bottom: 80px solid green;
+}
+
+.star-five.green:after {
+  border-bottom: 70px solid green;
+}
+
+.star-five.blue {
+  border-bottom: 70px solid blue;
+}
+
+.star-five.blue:before {
+  border-bottom: 80px solid blue;
+}
+
+.star-five.blue:after {
+  border-bottom: 70px solid blue;
+}
+
+.star-five.yellow {
+  border-bottom: 70px solid yellow;
+}
+
+.star-five.yellow:before {
+  border-bottom: 80px solid yellow;
+}
+
+.star-five.yellow:after {
+  border-bottom: 70px solid yellow;
+}
+
+.star-five.gold {
+  border-bottom: 70px solid gold;
+}
+
+.star-five.gold:before {
+  border-bottom: 80px solid gold;
+}
+
+.star-five.gold:after {
+  border-bottom: 70px solid gold;
+}
+
+.star-five.pink {
+  border-bottom: 70px solid pink;
+}
+
+.star-five.pink:before {
+  border-bottom: 80px solid pink;
+}
+
+.star-five.pink:after {
+  border-bottom: 70px solid pink;
+}
