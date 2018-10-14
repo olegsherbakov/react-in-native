@@ -11,7 +11,7 @@ const Element = ({ title, arr, zIndex }) =>
       }}
     >
       <div className={`star-five ${star}`} />
-      {title}
+      <div className="element-text">{title}</div>
     </div>
   ))
 
