@@ -29,8 +29,6 @@ global.ControlledComponent = function(element, props = {}) {
 
   return () => ({
     create: () => store.dispatch({ type: `CREATE` }),
-    // TODO in progress
-    // edit: (id, payload) => store.dispatch({ type: `EDIT`, id, payload }),
     shuffle: () => store.dispatch({ type: `SHUFFLE` }),
     remove: id => store.dispatch({ type: `DELETE`, id }),
     clear: () => store.dispatch({ type: `CLEAR` }),
