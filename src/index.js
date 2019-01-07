@@ -1,30 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
 import reducer from 'app/reducer'
+import { resize } from 'app/action'
 import App from 'app'
 
 global.ControlledComponent = function(element, props = {}) {
-  const store = createStore(reducer)
-  const resize = ({ width, height }) =>
-    store.dispatch({ type: `RESIZE`, width, height })
+  const store = createStore(reducer, applyMiddleware(thunk))
 
-  global.addEventListener(`resize`, () => {
-    const { innerWidth, innerHeight } = global
+  global.addEventListener(`resize`, () => store.dispatch(resize(global)))
 
-    resize({ width: innerWidth, height: innerHeight })
-  })
-
-  const { innerWidth, innerHeight } = global
-
-  resize({ width: innerWidth, height: innerHeight })
-
-  ReactDOM.render(
-    <Provider store={store}>
-      <App {...props} />
-    </Provider>,
-    element
+  store.dispatch(resize(global)).then(() =>
+    ReactDOM.render(
+      <Provider {...{ store }}>
+        <App {...props} />
+      </Provider>,
+      element
+    )
   )
 
   return () => ({
